@@ -41,7 +41,7 @@
     "angular-mocks": "^1.4.1",
     "isparta-instrumenter-loader": "^0.2.1",
     "jasmine-core": "^2.3.4",
-    "karma": "^0.12.36",
+    "karma": "^0.13.9",
     "karma-coverage": "^0.4.2",
     "karma-jasmine": "^0.3.5",
     "karma-phantomjs-launcher": "^0.2.0",
