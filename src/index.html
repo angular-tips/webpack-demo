@@ -1,11 +1,12 @@
 <!doctype html>
-<html ng-app="app" lang="en">
+<html ng-app="app" lang="en" ng-controller="MainController">
 <head>
   <meta charset="UTF-8">
   <title>Angular App</title>
   <base href="/">
 </head>
 <body>
+  <header ui-view="header"></header>
   <div class="container">
     <ui-view></ui-view>
   </div>

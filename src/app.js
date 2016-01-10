@@ -5,6 +5,17 @@ import uirouter from 'angular-ui-router';
 
 import routing from './app.config';
 import home from './features/home';
+import header from './features/header';
 
-angular.module('app', [uirouter, home])
-  .config(routing);
+function MainController($log) {
+  $log.debug('MainCtrl laoded!');
+}
+
+function run($log){
+  $log.debug('ng-App is running!');
+}
+
+angular.module('app', [uirouter, home, header])
+  .config(routing)
+  .run(run)
+  .controller('MainController', MainController);
