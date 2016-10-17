@@ -29,11 +29,11 @@ module.exports = function makeWebpackConfig (options) {
    * Karma will set this when it's a test build
    */
   if (TEST) {
-    config.entry = {}
+    config.entry = {};
   } else {
     config.entry = {
       app: './src/app.js'
-    }
+    };
   }
 
   /**
@@ -43,7 +43,7 @@ module.exports = function makeWebpackConfig (options) {
    * Karma will handle setting it up for you when it's a test build
    */
   if (TEST) {
-    config.output = {}
+    config.output = {};
   } else {
     config.output = {
       // Absolute output directory
@@ -60,7 +60,7 @@ module.exports = function makeWebpackConfig (options) {
       // Filename for non-entry points
       // Only adds hash in build mode
       chunkFilename: BUILD ? '[name].[hash].js' : '[name].bundle.js'
-    }
+    };
   }
 
   /**
@@ -124,7 +124,7 @@ module.exports = function makeWebpackConfig (options) {
         /\.test\.js$/
       ],
       loader: 'isparta-instrumenter'
-    })
+    });
   }
 
   // CSS LOADER
@@ -147,7 +147,7 @@ module.exports = function makeWebpackConfig (options) {
   if (TEST) {
     // Reference: https://github.com/webpack/null-loader
     // Return an empty module
-    cssLoader.loader = 'null'
+    cssLoader.loader = 'null';
   }
 
   // Add cssLoader to the loader list
@@ -186,9 +186,11 @@ module.exports = function makeWebpackConfig (options) {
       new HtmlWebpackPlugin({
         template: './src/index.html',
         inject: 'body',
-        minify: BUILD
+        minify: {
+            removeAttributeQuotes: true
+        }
       })
-    )
+    );
   }
 
   // Add build specific plugins
@@ -205,7 +207,7 @@ module.exports = function makeWebpackConfig (options) {
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
       // Minify all javascript, switch loaders to minimizing mode
       new webpack.optimize.UglifyJsPlugin()
-    )
+    );
   }
 
   /**
